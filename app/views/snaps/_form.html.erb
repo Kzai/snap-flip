@@ -1,0 +1,23 @@
+<%= simple_form_for @snap, html: { multipart: true } do |f| %>
+    <% if @snap.errors.any? %>
+        <div id="errors">
+          <h2></h2>
+          <%= pluralize(@snap.errors.count, "error") %>
+          prevented this Snap from saving
+          <ul>
+            <% @snap.errors.full_message.each do |msg| %>
+                <li>
+                  <%= msg %>
+                </li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+    <div class="form-group">
+      <%= f.input :title, input_html: { class: 'form-control'} %>
+    </div>
+    <div class="form-group">
+      <%= f.input :description, input_html: { class: 'form-control'} %>
+    </div>
+    <%= f.button :submit, class: "btn btn-primary" %>
+<% end %>

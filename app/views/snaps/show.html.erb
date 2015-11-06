@@ -1,0 +1,10 @@
+<h1>
+  <%= @snap.title %>
+</h1>
+<p>
+  <%= @snap.description %>
+</p>
+
+<%= link_to "Back", root_path %>
+<%= link_to "Edit", edit_snap_path %>
+<%= link_to "Delete", snap_path, method: :delete, data: { confirm: "Are you sure?" } %>
