@@ -9,11 +9,11 @@ class SnapsController < ApplicationController
   end
 
   def new
-    @snap = Snap.new
+    @snap = current_user.snaps.build
   end
 
   def create
-    @snap = Snap.new(snap_params)
+    @snap = current_user.snaps.build(snap_params)
   #   If snap able to save
     if @snap.save
       redirect_to @snap, notice: "Successfully created new snap"

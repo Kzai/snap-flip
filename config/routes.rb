@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :snaps
 
   # Setting root of application to snaps controller > index
