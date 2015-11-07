@@ -43,8 +43,12 @@ class SnapsController < ApplicationController
 
   private
 
+  # ToDo: Add longitude and latitude
+  # ToDo: Add difficulty rating
+  # ToDo: Add cudos or thumbs-up
+
   def snap_params
-    params.require(:snap).permit(:title, :description)
+    params.require(:snap).permit(:title, :description, :image)
   end
 
   def find_snap
