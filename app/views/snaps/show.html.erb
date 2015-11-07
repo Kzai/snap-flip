@@ -1,17 +1,35 @@
 <!--image, title, description set as params in ctrl-->
-<%= image_tag @snap.image.url(:medium) %>
-<h1>
-  <%= @snap.title %>
-</h1>
-<p>
-  <%= @snap.description %>
-</p>
+<div id="snap_show" class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="panel panel-default">
+      <div class="panel-heading snap_image">
+        <%= image_tag @snap.image.url() %>
+      </div>
+      <div class="panel-body">
+        <h1><%= @snap.title %></h1>
+        <p class="description"><%= @snap.description %></p>
+        <p>
+          Submitted by
+          <%= @snap.user.email %>
+        </p>
+      </div>
+      <div class="panel-footer">
+        <div class="row">
+          <div class="col-md-6">
+            <p class="user">
+              Submitted by
+              <%= @snap.user.email %>
+            </p>
+          </div>
+          <div class="col-md-6">
+            <div class="btn-group pull-right">
+              <%= link_to "Edit", edit_snap_path, class: "btn btn-group" %>
+              <%= link_to "Delete", snap_path, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-group" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<p>
-  Submitted by:
-  <%= @snap.user.email %>
-</p>
-
-<%= link_to "Back", root_path %>
-<%= link_to "Edit", edit_snap_path %>
-<%= link_to "Delete", snap_path, method: :delete, data: { confirm: "Are you sure?" } %>

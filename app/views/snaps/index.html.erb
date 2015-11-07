@@ -1,6 +1,16 @@
-<% @snaps.each do |snap| %>
-    <%= link_to (image_tag snap.image.url(:medium)), snap %>
-    <h2>
-      <%= link_to snap.title, snap %>
-    </h2>
-<% end %>
+<!--Masonry stuff-->
+<div class="transitions-enabled" id="snaps">
+  <% @snaps.each do |snap| %>
+  <div class="box panel panel-default">
+        <%= link_to (image_tag snap.image.url()), snap %>
+        <div class="panel-body">
+          <h2><%= link_to snap.title, snap %></h2>
+          <p class="user">
+            Submitted by
+            <%= snap.user.email %>
+          </p>
+        </div>
+  </div>
+  <% end %>
+
+</div>
