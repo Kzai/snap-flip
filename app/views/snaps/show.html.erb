@@ -23,6 +23,11 @@
           </div>
           <div class="col-md-6">
             <div class="btn-group pull-right">
+              <%= link_to like_snap_path(@snap), method: :put, class: "btn btn-default" do %>
+                <span class="glyphicon glyphicon-heart">
+                  <%= @snap.get_upvotes.size %>
+                </span>
+              <% end %>
               <%= link_to "Edit", edit_snap_path, class: "btn btn-group" %>
               <%= link_to "Delete", snap_path, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-group" %>
             </div>

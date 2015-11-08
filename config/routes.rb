@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :snaps
-
+  resources :snaps do
+    #  Nested routes
+    # Create member block
+    member do
+    put "like", to: "snaps#upvote"
+    end
+  end
   # Setting root of application to snaps controller > index
   root "snaps#index"
 

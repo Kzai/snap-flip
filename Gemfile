@@ -32,6 +32,8 @@ gem 'paperclip', '~> 4.3', '>= 4.3.1'
 
 gem 'masonry-rails', '~> 0.2.4'
 
+gem 'acts_as_votable', '~> 0.10.0'
+
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 

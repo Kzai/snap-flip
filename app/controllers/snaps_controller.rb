@@ -1,5 +1,5 @@
 class SnapsController < ApplicationController
-  before_action :find_snap, only: [:show, :edit, :update, :destroy]
+  before_action :find_snap, only: [:show, :edit, :update, :destroy, :upvote]
 
   def index
     @snaps = Snap.all.order("created_at DESC")
@@ -40,6 +40,12 @@ class SnapsController < ApplicationController
     @snap.destroy
     redirect_to root_path
   end
+
+  def upvote
+    @snap.upvote_by current_user
+    redirect_to :back
+  end
+
 
   private
 
